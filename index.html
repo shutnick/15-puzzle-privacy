@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — 15 Puzzle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --accent: #2a52a0;
+      --accent-light: #e8edf8;
+      --border: #e0ddd6;
+      --tile: #3a6fd8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* Header */
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 60px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(255,255,255,0.05) 0%, transparent 60%);
+    }
+
+    .puzzle-icon {
+      display: inline-grid;
+      grid-template-columns: repeat(4, 18px);
+      grid-template-rows: repeat(4, 18px);
+      gap: 3px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .puzzle-icon span {
+      background: rgba(255,255,255,0.25);
+      border-radius: 3px;
+      display: block;
+      animation: tileAppear 0.6s ease both;
+    }
+
+    .puzzle-icon span:nth-child(16) {
+      background: transparent;
+    }
+
+    .puzzle-icon span:nth-child(1)  { animation-delay: 0.05s; }
+    .puzzle-icon span:nth-child(2)  { animation-delay: 0.10s; }
+    .puzzle-icon span:nth-child(3)  { animation-delay: 0.15s; }
+    .puzzle-icon span:nth-child(4)  { animation-delay: 0.20s; }
+    .puzzle-icon span:nth-child(5)  { animation-delay: 0.25s; }
+    .puzzle-icon span:nth-child(6)  { animation-delay: 0.30s; }
+    .puzzle-icon span:nth-child(7)  { animation-delay: 0.35s; }
+    .puzzle-icon span:nth-child(8)  { animation-delay: 0.40s; }
+    .puzzle-icon span:nth-child(9)  { animation-delay: 0.45s; }
+    .puzzle-icon span:nth-child(10) { animation-delay: 0.50s; }
+    .puzzle-icon span:nth-child(11) { animation-delay: 0.55s; }
+    .puzzle-icon span:nth-child(12) { animation-delay: 0.60s; }
+    .puzzle-icon span:nth-child(13) { animation-delay: 0.65s; }
+    .puzzle-icon span:nth-child(14) { animation-delay: 0.70s; }
+    .puzzle-icon span:nth-child(15) { animation-delay: 0.75s; }
+
+    @keyframes tileAppear {
+      from { opacity: 0; transform: scale(0.5); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    header .subtitle {
+      font-size: 0.9rem;
+      opacity: 0.75;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    /* Layout */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* Intro card */
+    .intro-card {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin-bottom: 48px;
+      font-size: 0.95rem;
+      color: var(--accent);
+      animation: fadeUp 0.5s ease 0.3s both;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 44px;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    section:nth-child(2)  { animation-delay: 0.10s; }
+    section:nth-child(3)  { animation-delay: 0.15s; }
+    section:nth-child(4)  { animation-delay: 0.20s; }
+    section:nth-child(5)  { animation-delay: 0.25s; }
+    section:nth-child(6)  { animation-delay: 0.30s; }
+    section:nth-child(7)  { animation-delay: 0.35s; }
+    section:nth-child(8)  { animation-delay: 0.40s; }
+    section:nth-child(9)  { animation-delay: 0.45s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 .num {
+      background: var(--accent);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--ink);
+      margin: 20px 0 8px;
+      letter-spacing: 0.02em;
+    }
+
+    p {
+      color: #3a3a3a;
+      margin-bottom: 12px;
+      font-size: 0.97rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* Contact */
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .contact-box .icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+    }
+
+    .contact-box p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-box a {
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 40px 20px 36px; }
+      main { padding: 36px 20px 60px; }
+      .contact-box { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="puzzle-icon">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <h1>Privacy Policy</h1>
+  <p class="subtitle">15 Puzzle &nbsp;·&nbsp; Effective: February 25, 2026</p>
+</header>
+
+<main>
+
+  <div class="intro-card">
+    This app respects your privacy. It contains <strong>no ads</strong>, does not sell your data, and collects only what is necessary to keep the app running well.
+  </div>
+
+  <section>
+    <h2><span class="num">1</span> Introduction</h2>
+    <p>Welcome to 15 Puzzle! This Privacy Policy explains how Serhii Sofiienko ("I", "me", or "the developer") collects, uses, and protects information when you use the 15 Puzzle mobile application ("the App"). By using the App, you agree to the practices described in this policy.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> Information I Collect</h2>
+    <h3>Crash Reports</h3>
+    <p>The App automatically collects crash reports when it encounters an error or unexpectedly stops. These reports may include technical information such as device type, operating system version, App version, and the state of the App at the time of the crash. This data is used solely to identify and fix bugs.</p>
+    <h3>Analytics Data</h3>
+    <p>The App collects anonymized analytics data about how you interact with it — such as which buttons you tap, which settings you choose, and general usage patterns. This helps me understand how the App is used and improve the experience for everyone. This data does not identify you personally.</p>
+    <h3>Voluntary Contact</h3>
+    <p>If you choose to contact me via the email option on the About page, you will be sharing your email address and any information you include in your message. This information is used solely to respond to your inquiry.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span> How I Use Your Information</h2>
+    <p>I use the collected information to:</p>
+    <p>— Detect, diagnose, and fix crashes and technical issues in the App.</p>
+    <p>— Understand user behavior and improve the App's features and usability.</p>
+    <p>— Respond to your messages or support requests if you contact me.</p>
+    <p>I do not use your information for advertising purposes, and the App contains no ads.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span> Data Sharing</h2>
+    <p>I do not sell, trade, or rent your information to third parties. Crash reports and analytics data may be processed by third-party service providers (such as Firebase by Google) solely for the purposes described above, under strict data processing agreements. These providers are not permitted to use your data for their own purposes.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">5</span> Data Retention</h2>
+    <p>Crash report and analytics data are retained only as long as necessary to fulfill the purposes described in this policy. Emails you send me are retained for as long as needed to resolve your inquiry.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">6</span> Your Rights</h2>
+    <p>Depending on your location, you may have rights regarding your personal data, including the right to access, correct, or delete it. Since the App collects minimal and anonymized data, most users will have little or no personal data stored. If you have any questions or requests about your data, please contact me at the address below.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">7</span> Children's Privacy</h2>
+    <p>The App does not knowingly collect personal information from children under the age of 13. If you believe a child has provided personal information through the App, please contact me and I will promptly delete it.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">8</span> Changes to This Policy</h2>
+    <p>I may update this Privacy Policy from time to time. If I make significant changes, I will update the effective date at the top of this document. Your continued use of the App after any changes constitutes your acceptance of the updated policy.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">9</span> Contact</h2>
+    <p>If you have any questions about this Privacy Policy or would like to reach out for any reason, feel free to contact me:</p>
+    <div class="contact-box">
+      <div class="icon">✉️</div>
+      <div>
+        <a href="mailto:simplegamesua@gmail.com">simplegamesua@gmail.com</a>
+        <p>Serhii Sofiienko — 15 Puzzle Developer</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 Serhii Sofiienko &nbsp;·&nbsp; 15 Puzzle &nbsp;·&nbsp; All rights reserved
+</footer>
+
+</body>
+</html>
